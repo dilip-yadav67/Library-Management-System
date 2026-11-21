@@ -53,9 +53,6 @@ Browser mein `http://localhost:5173` kholein → **Sign up** karein.
    `mongodb+srv://USER:PASSWORD@cluster0.xxxxx.mongodb.net/librarypro?retryWrites=true&w=majority`
    (`<password>` ki jagah asli password, aur `/librarypro` database naam hona chahiye.)
 
-### Step B — Code GitHub par daalein
-Is poore folder ko ek GitHub repo mein push karein (`backend/` aur `frontend/` dono saath).
-
 ### Step C — Backend Render par
 1. https://render.com → **New → Web Service** → apni GitHub repo chunein.
 2. Settings:
@@ -71,7 +68,6 @@ Is poore folder ko ek GitHub repo mein push karein (`backend/` aur `frontend/` d
 4. **Deploy** karein. Link milega, jaise `https://librarypro-api.onrender.com`.
    Test: `https://librarypro-api.onrender.com/api/health` → `{"ok":true}`.
 
-*(Alternative: repo mein `render.yaml` hai, **New → Blueprint** se bhi ho jaata hai.)*
 
 ### Step D — Frontend Vercel par
 1. https://vercel.com → **Add New → Project** → wahi GitHub repo.
