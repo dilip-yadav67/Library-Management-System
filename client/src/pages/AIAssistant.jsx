@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { api } from '../api.js';
 import { useToast } from '../components/Toast.jsx';
 
-const SUGGEST = ['Kaun si books overdue hain?', 'Total fine kitna hai?', 'Sabse popular books kaun si hain?', 'Kaun si books ka stock khatam hai?'];
+const SUGGEST = ['Which books are overdue?','What is the total fine amount?','Which books are the most popular?','Which books are out of stock?'];
 
 export default function AIAssistant() {
   const toast = useToast();
@@ -32,14 +32,14 @@ export default function AIAssistant() {
       <div className="card chat">
         <div className="msgs">
           {msgs.map((m, i) => <div key={i} className={`msg ${m.role}`}>{m.content}</div>)}
-          {busy && <div className="msg">Soch raha hoon…</div>}
+          {busy && <div className="msg">Thinking...</div>}
           <div ref={end} />
         </div>
         <div className="chips">
           {SUGGEST.map((s) => <button key={s} className="chip" onClick={() => send(s)}>{s}</button>)}
         </div>
         <form className="row" onSubmit={(e) => { e.preventDefault(); send(); }}>
-          <div className="grow"><input value={text} onChange={(e) => setText(e.target.value)} placeholder="Library ke baare mein kuch bhi puchhein…" /></div>
+          <div className="grow"><input value={text} onChange={(e) => setText(e.target.value)} placeholder="Ask anything about the library…" /></div>
           <button className="btn primary" disabled={busy}>Send</button>
         </form>
       </div>
