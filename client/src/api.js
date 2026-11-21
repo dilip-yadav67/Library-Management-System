@@ -17,14 +17,14 @@ async function request(method, path, body) {
       body: body ? JSON.stringify(body) : undefined,
     });
   } catch (e) {
-    throw new Error('Server se connect nahi ho paaya. Internet ya backend check karein.');
+    throw new Error('Unable to connect to the server. Please check your internet connection or backend server.');
   }
   const data = await res.json().catch(() => ({}));
   if (res.status === 401 && !path.startsWith('/auth/login') && !path.startsWith('/auth/signup')) {
     setToken(null);
     window.dispatchEvent(new Event('lp:logout'));
   }
-  if (!res.ok) throw new Error(data.message || 'Kuch galat ho gaya');
+  if (!res.ok) throw new Error(data.message || 'Something went wrong !');
   return data;
 }
 
